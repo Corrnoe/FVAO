@@ -97,24 +97,3 @@ public class BinarySearchTree {
         tree.printTree();
     }
 }
-
-
-// Documentación técnica
-// Decisiones de implementación:
-// Representación de Nodo (Node): Utilicé una clase simple para representar un nodo en el árbol. Cada nodo tiene una clave (key), y referencias a los nodos izquierdo y derecho.
-
-// Clase BinarySearchTree: Esta clase representa el árbol binario de búsqueda. Contiene un puntero a la raíz del árbol y métodos para realizar recorridos en pre-orden, in-orden y post-orden, así como la impresión del árbol.
-
-// Recorridos y Método de Impresión: Implementé métodos para realizar los tres tipos de recorridos (pre-orden, in-orden y post-orden) y un método para imprimir el árbol de manera visual. Esto facilita la verificación del correcto funcionamiento del árbol.
-
-// Métodos de Inserción y Borrado (pendientes): Dejé marcados en el código los lugares donde deberían implementarse los métodos de inserción y borrado. Estos métodos permitirán agregar y eliminar elementos del árbol, respectivamente.
-
-// Buenas prácticas:
-// Indentación y Nomenclatura: El código sigue las convenciones de indentación y nomenclatura de Java.
-
-// Comentarios: Se incluyeron comentarios para explicar el propósito de los métodos y decisiones clave.
-
-// Rúbrica
-// Funcionamiento de la estructura: 6 puntos.
-// Buenas prácticas de implementación: 2 puntos.
-// Memoria: 2 puntos.

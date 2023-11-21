@@ -1,0 +1,57 @@
+// Laboratorio: Manejo de un sistema operativo
+// Mostrar un listado de todos los procesos
+
+ps -e -o pid,ppid,user,%cpu,%mem,cmd > ~/laboratorio/procesos1.txt
+
+// Procesos activos que consumen mayor memoria
+
+ps aux --sort=-%mem | head -n 7
+
+// Listado de procesos con la letra 'p'
+
+ps aux | grep '[pP]' > ~/procesos_p.txt
+
+// Información del sistema
+
+uname -a > ~/laboratorio/info_sistema.txt
+
+// Combina y borra archivos
+
+cat ~/laboratorio/procesos1.txt ~/procesos_p.txt > ~/laboratorio/resultado.txt
+rm ~/laboratorio/procesos1.txt ~/procesos_p.txt
+
+//  Crea un proceso con sleep
+
+sleep 1000 &
+# Para finalizar el proceso
+kill -9 <PID_del_proceso>
+
+// Crear y eliminar un usuario
+
+sudo useradd operativo
+sudo passwd operativo
+sudo mkdir /home/operativo
+sudo touch /home/operativo/hola.data
+sudo chown operativo:operativo /home/operativo/hola.data
+ls -l /etc/passwd | grep operativo >> ~/laboratorio/nueva_linea.txt
+sudo userdel -r operativo
+
+// Permisos de archivos
+
+touch ~/laboratorio/miarchivo
+ls -l ~/laboratorio/miarchivo  # Comenta los permisos
+sudo touch ~/laboratorio/otroarchivo
+ls -l ~/laboratorio/otroarchivo  # Comenta los permisos
+echo "Hola" > ~/laboratorio/otroarchivo
+chmod +w ~/laboratorio/otroarchivo
+
+// Renombrar y ejecutar un archivo
+
+mv ~/laboratorio/miarchivo ~/laboratorio/miarchivo.sh
+chmod +x ~/laboratorio/miarchivo.sh
+./laboratorio/miarchivo.sh
+
+// Conclusiones
+// Este es solo un ejemplo básico. 
+// Asegúrate de proporcionar explicaciones detalladas, capturas de pantalla si es necesario, y consulta las páginas de manual o recursos en línea según sea necesario. 
+// Además, cumple con las normativas de redacción y estructura requeridas.
