@@ -1,0 +1,138 @@
+// Memoria Explicativa
+
+// Ejercicio 1: Creación de procesos
+// Código (C)
+
+// Incluir las librerías y el código proporcionado
+
+// 1.Jerarquía de procesos:
+
+- Proceso principal (PID: X)
+  - Proceso hijo (PID: Y)
+    - Nieto 1 (PID: Z)
+    - Nieto 2 (PID: W)
+  - Otro hijo (PID: V)
+
+// 2.Mensajes Repetidos:
+//    Los mensajes se repiten porque cada proceso hijo (excepto el último) crea nuevos procesos antes de finalizar, generando duplicados en la salida estándar.
+
+// 3.Orden de Finalización:
+//    Los procesos pueden finalizar en cualquier orden debido a la concurrencia y al planificador del sistema operativo.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Ejercicio 2: Planificación de procesos
+
+// Algoritmos de Planificación
+
+// FCFS (First-Come-First-Serve)
+
+// Diagrama de Gantt:  (lua)
+
+| P0 | P1 | P2 | P3 | P4 |
+|----|----|----|----|----|
+| 1  | 11 | 13 | 15 | 21 |
+
+// Tiempos de retorno promedio: (1 + 11 + 13 + 15 + 21) / 5 = 12 ms
+
+// Tiempos de espera promedio: (0 + 1 + 11 + 13 + 15) / 5 = 8 ms
+
+// SJF (Shortest Job First)
+// Diagrama de Gantt:  (lua)
+
+| P0 | P2 | P3 | P4 | P1 |
+|----|----|----|----|----|
+| 1  | 2  | 4  | 6  | 16 |
+
+// Tiempos de retorno promedio: (1 + 2 + 4 + 6 + 16) / 5 = 5.8 ms
+
+// Tiempos de espera promedio: (0 + 1 + 2 + 4 + 6) / 5 = 2.6 ms
+
+// Prioridades sin Desalojo
+// Diagrama de Gantt:  (lua)
+
+| P0 | P2 | P3 | P4 | P1 |
+|----|----|----|----|----|
+| 1  | 3  | 5  | 7  | 17 |
+
+// Tiempos de retorno promedio: (1 + 3 + 5 + 7 + 17) / 5 = 6.6 ms
+
+// Tiempos de espera promedio: (0 + 2 + 4 + 6 + 7) / 5 = 3.8 ms
+
+// RR (Round Robin)
+// Diagrama de Gantt:  (lua)
+
+| P0 | P1 | P2 | P3 | P4 | P1 | P4 |
+|----|----|----|----|----|----|----|
+| 1  | 2  | 4  | 6  | 7  | 17 | 21 |
+
+// Tiempos de retorno promedio: (1 + 12 + 13 + 15 + 21) / 5 = 12.4 ms
+
+// Tiempos de espera promedio: (0 + 1 + 11 + 13 + 14) / 5 = 7.8 ms
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Ejercicio 3: Estados de los Procesos
+
+// Diagrama de Gantt
+
+// Diagrama de Gantt (css)
+
+| A  | A  | A  | A  | B  | B  | B  | C  | C  | C  |
+|----|----|----|----|----|----|----|----|----|----|
+| L  | L  | L  | E  | E  | W  | W  | W  | B  | B  |
+
+// Cálculos
+
+// Tiempos de Retorno:
+
+// Proceso A: (18 + 4) = 22 ms
+// Proceso B: (12 + 8 + 4) = 24 ms
+// Proceso C: (4 + 9 + 8 + 4) = 25 ms
+// Tiempos de Espera:
+
+// Proceso A: (0)
+// Proceso B: (8)
+// Proceso C: (9 + 8)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Ejercicio 4: Interbloqueos
+
+// Grafo de Asignación de Recursos
+
+P (Impresora)   D (Disco)   S (Puerto Serie)
+A                 X            W
+B                 W            X
+
+// No hay interbloqueo porque no existe un ciclo en el grafo.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Ejercicio 5: Algoritmo del Banquero
+
+// Tabla de Necesidades
+
+Proceso   A   B   C   A_max   B_max   C_max   A_nec   B_nec   C_nec
+P1        1   1   2    6      4      3      5      3      1
+P2        2   0   1    3      5      1      1      5      0
+P3        1   1   0    2      2      1      1      1      0
+P4        2   0   2    2      3      3      0      3      1
+
+// Estado Seguro
+// Sí, el sistema se encuentra en un estado seguro, ya que existe una secuencia de ejecución que evita el interbloqueo.
+
+// Concesión Adicional
+// No sería seguro conceder al proceso P4 una unidad adicional del recurso C, 
+// ya que no hay suficientes recursos disponibles para satisfacer todas las solicitudes pendientes de los procesos.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Conclusiones
+// En esta actividad, hemos abordado diferentes aspectos relacionados con la planificación de procesos, desde la creación de procesos hasta la detección de interbloqueos. 
+// La comprensión de algoritmos de planificación, el análisis de estados de procesos y la aplicación del algoritmo del banquero son habilidades 
+// clave en sistemas operativos multiprogramados. La práctica de estos conceptos mediante ejercicios y 
+// la resolución de problemas ha fortalecido nuestro entendimiento de estos temas.
+
+// En resumen, esta actividad ha contribuido significativamente a nuestra comprensión de la gestión de procesos en sistemas operativos y 
+// ha mejorado nuestras habilidades para analizar y resolver situaciones relacionadas con la concurrencia y la planificación de la CPU.  
